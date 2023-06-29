@@ -25,12 +25,44 @@ modelo:
 
 2. Quais são os principais campos e seus respectivos tipos?
  
- - empresas_parceiras: id_emp tipo inteiro.
- - colaboradores: id_colab tipo inteiro.
- - tecnologia: id_tec tipo inteiro.
+ TABELA01:
+ 	empresas_parceiras
+ 	-id_emp integer **chave primária
+ 	-web_dev varchar[30]
+ 	-dados varchar[30]
+ 	-markerting varchar[30]
+ 	-following_user_id integer
+ 	-followed_user_id integer
+ 	
+ TABELA02:
+ 	colaboradores
+ 	-id_colab integer **chave primária
+ 	-empresa_id int	  **chave secundária
+ 	- username varchar[30]
+ 	-funcao varchar[30]
+ 	-setor varchar[30]
+ 	- cel varchar[30]
+ 	-tempo_empresa timestamp
+ 	
+ TABELA03:
+ 	tecnologia
+ 	-id_tec integer **chave primária
+ 	-id_empresa int **chave secundária
+ 	-empresa varchar[30]
+ 	-cnpj varchar[30]
+ 	-status varchar[10]	
+
+
 
 3. Como essas entidades estão relacionadas?
- - Estão relaciionadas por meios de chave primária na tabela empresas_parceiras e chaves secundárias nas tabelas colaboradores e tecnologia.
+   
+  - A tabela empresas_parceiras está relacionada da forma de 1 para 2. chave primária id_emp que se relaciona com as tabelas colaboradores e tecnologia que tem este campo como chave secundária.
+ - Tabela colaboradores se relaciona de 1 para até 2.
+ 	-chave primária id_colab. 
+ 	-chave secundaria empresa_id
+ - Tabela tecnologia se relaciona de 1 para até 2
+ 	-chave primária id_tec . 
+ 	-chave secundaria id_empresa.
  
 4. Simule 2 registros para cada entidade.
  - Suponhamos que já temos um banco de dados e as tabelas criadas.
